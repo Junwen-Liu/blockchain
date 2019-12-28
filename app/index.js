@@ -19,6 +19,10 @@ app.post('/mine', (req, res) => {
     const block = bc.addBlock(req.body.data);
     console.log(`new block added: ${block.toString()}`);
 
+    p2pServer.syncChains();
+
+    //Proof of work system: is a system that requires miner to do computational work to add blocks
+
     res.redirect('/blocks');
 });
 
